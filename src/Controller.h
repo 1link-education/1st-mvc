@@ -1,7 +1,7 @@
 ﻿#ifndef CONTROLLER_H
 #define CONTROLLER_H
 #include "model.h"
-class List {
+class controller {
 public:
 	int *n; // số sinh viên
 

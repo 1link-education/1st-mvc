@@ -13,7 +13,7 @@ using namespace std;
 
 int main()
 {
-	Menu b;
-	b.main_menu();
+	View b;
+	b.main_View();
 	return 0;
 }

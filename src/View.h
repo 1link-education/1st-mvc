@@ -3,13 +3,13 @@
 
 #include"model.h"
 #include"controller.h"
-class Menu {
+class View {
 public:
-	List a;
-	void listmenu();// tùy chọn tạo danh sách sinh viên
-	void modifymenu(); // tùy chọn sửa đổi sinh viên
-	void searchmenu(); // tùy chọn tìm kiếm sinh viên
-	void sortmenu(int); // tùy chọn sắp xếp sinh viên
-	int main_menu(); // tùy chọn các chức năng
+	controller a;
+	void listView();// tùy chọn tạo danh sách sinh viên
+	void modifyView(); // tùy chọn sửa đổi sinh viên
+	void searchView(); // tùy chọn tìm kiếm sinh viên
+	void sortView(int); // tùy chọn sắp xếp sinh viên
+	int main_View(); // tùy chọn các chức năng
 };
 #endif

@@ -7,7 +7,7 @@
 using namespace std;
 // i, j mặc định là các biến đếm.
 
-void List::bykeyboard(int m) {
+void  controller::bykeyboard(int m) {
 	n = &m;
 	*n = m;
 	int id;
@@ -49,7 +49,7 @@ void List::bykeyboard(int m) {
 			bykeyboard(*n);
 		}
 }
-int List::check(int i, int _id, string _name, string _address, string _gender, float _math, float _chem, float _phys) {
+int  controller::check(int i, int _id, string _name, string _address, string _gender, float _math, float _chem, float _phys) {
 	if (i == 0) return 1;
 	else
 	{
@@ -63,7 +63,7 @@ int List::check(int i, int _id, string _name, string _address, string _gender, f
 	}
 }
 
-void List::byfile() {
+void  controller::byfile() {
 	string filename;
 	int i = 0;
 	int id;
@@ -82,9 +82,9 @@ void List::byfile() {
 		file >> id >> name >> address >> gender >> math >> phys >> chem;
 		st[i]->SetSV(id, name, address, gender, math, chem, phys);
 		i++;
-		cout << "ID: " << id << "   Name: " << name << "    Address: " << 
-		address << "   Gender: " << gender << "   Math: " << math 
-		<< "   Chemical: " << chem << "   Physical: " << phys <<endl;
+		cout << "ID: " << id << "   Name: " << name << "    Address: " <<
+			address << "   Gender: " << gender << "   Math: " << math
+			<< "   Chemical: " << chem << "   Physical: " << phys << endl;
 	}
 	if (file.eof())
 	{
@@ -92,13 +92,13 @@ void List::byfile() {
 	}
 }
 
-void List::sortid(int*K[]) {
+void  controller::sortid(int*K[]) {
 	int *x;
 	int j;
-	for ( j = 0; j < sizeof(K)/sizeof(int); j++)
+	for (j = 0; j < sizeof(K) / sizeof(int); j++)
 	{
 		int m = j;
-		for (int t = j + 1; t < sizeof(K)/sizeof(int); t++)
+		for (int t = j + 1; t < sizeof(K) / sizeof(int); t++)
 		{
 			if (*K[t] < *K[m]) m = j;
 			if (j < m)
@@ -111,11 +111,11 @@ void List::sortid(int*K[]) {
 	}
 	for (int i = 0; i < *n; i++)
 		for (int j = 0; j < sizeof(K); j++)
-			if (List::st[i]->id = *K[j])
-				List::st[i]->GetSV();
+			if (controller::st[i]->id = *K[j])
+				controller::st[i]->GetSV();
 }
 
-void List::sortal(string *A[]) {
+void  controller::sortal(string *A[]) {
 	string *y;
 	for (int j = 0; j < 50; j++)
 	{
@@ -133,10 +133,10 @@ void List::sortal(string *A[]) {
 	}
 	for (int i = 0; i < *n; i++)
 		for (int j = 0; j < sizeof(A); j++)
-			if (List::st[i]->name.compare(*A[j]))
-				List::st[i]->GetSV();
+			if (controller::st[i]->name.compare(*A[j]))
+				controller::st[i]->GetSV();
 }
-void List::sortsum(float *S[]) {
+void  controller::sortsum(float *S[]) {
 	float *z;
 	for (int j = 0; j < sizeof(S); j++)
 	{
@@ -154,10 +154,10 @@ void List::sortsum(float *S[]) {
 	}
 	for (int i = 0; i < *n; i++)
 		for (int j = 0; j < sizeof(S); j++)
-			if (List::st[i]->sum = *S[j])
-				List::st[i]->GetSV();
+			if (controller::st[i]->sum = *S[j])
+				controller::st[i]->GetSV();
 }
-void List::searchsum(int k) {
+void  controller::searchsum(int k) {
 	int j = 0;
 	int **K = new int *[50]; // lưu sbd sinh viên K = key ~ id
 	string  **A = new string *[50]; // lưu tên sinh viên A = ABC ~ name
@@ -169,10 +169,10 @@ void List::searchsum(int k) {
 	if (check = 1)
 		for (int i = 0; i < *n; i++)
 		{
-			if (key = List::st[i]->sum) {
-				List::st[i]->id = *K[j];
-				List::st[i]->name = *A[j];
-				List::st[i]->sum = *S[j];
+			if (key = controller::st[i]->sum) {
+				controller::st[i]->id = *K[j];
+				controller::st[i]->name = *A[j];
+				controller::st[i]->sum = *S[j];
 				j++;
 				check = 0;
 			}
@@ -180,7 +180,7 @@ void List::searchsum(int k) {
 	else
 	{
 		cout << "\nNo student found. Please try again!";
-		List::searchsum(k);
+		controller::searchsum(k);
 	}
 	switch (k)
 	{
@@ -196,7 +196,7 @@ void List::searchsum(int k) {
 	}
 }
 
-void List::searchid() {
+void  controller::searchid() {
 	int key;
 	cout << "\nEnter id: ";
 	cin >> key;
@@ -204,19 +204,19 @@ void List::searchid() {
 	if (check = 1)
 		for (int i = 0; i < *n; i++)
 		{
-			if (key = List::st[i]->id) {
-				List::st[i]->GetSV();
+			if (key = controller::st[i]->id) {
+				controller::st[i]->GetSV();
 				check = 0;
 			}
 		}
 	else
 	{
 		cout << "\nNo student found. Please try again!";
-		List::searchid();
+		controller::searchid();
 	}
 }
 
-void List::searchname() {
+void  controller::searchname() {
 	string key;
 	fflush(stdin);
 	getline(std::cin, key);
@@ -224,19 +224,19 @@ void List::searchname() {
 	if (check = 1)
 		for (int i = 0; i < *n; i++)
 		{
-			if (key.compare(List::st[i]->name)) {
-				List::st[i]->GetSV();
+			if (key.compare(controller::st[i]->name)) {
+				controller::st[i]->GetSV();
 				check = 0;
 			}
 		}
 	else
 	{
 		cout << "\nNo student found. Please try again!";
-		List::searchname();
+		controller::searchname();
 	}
 }
 
-void List::searchmath(int k) {
+void  controller::searchmath(int k) {
 	int j = 0;
 	int i;
 	int **K = new int *[50];
@@ -248,17 +248,17 @@ void List::searchmath(int k) {
 	bool check = 1;
 	if (check = 1)
 		for (int i = 0; i < *n; i++)
-			if (key = List::st[i]->math) {
-				List::st[i]->id = *K[j];
-				List::st[i]->name = *A[j];
-				List::st[i]->sum = *S[j];
+			if (key = controller::st[i]->math) {
+				controller::st[i]->id = *K[j];
+				controller::st[i]->name = *A[j];
+				controller::st[i]->sum = *S[j];
 				j++;
 				check = 0;
 			}
 			else
 			{
 				cout << "\nNo student found. Please try again!";
-				List::searchmath(k);
+				controller::searchmath(k);
 			}
 	switch (k)
 	{
@@ -274,7 +274,7 @@ void List::searchmath(int k) {
 	}
 }
 
-void List::searchchem(int k) {
+void  controller::searchchem(int k) {
 	int j = 0;
 	int i;
 	int **K = new int *[50];
@@ -286,17 +286,17 @@ void List::searchchem(int k) {
 	bool check = 1;
 	if (check = 1)
 		for (int i = 0; i < *n; i++)
-			if (key = List::st[i]->chem) {
-				List::st[i]->id = *K[j];
-				List::st[i]->name = *A[j];
-				List::st[i]->sum = *S[j];
+			if (key = controller::st[i]->chem) {
+				controller::st[i]->id = *K[j];
+				controller::st[i]->name = *A[j];
+				controller::st[i]->sum = *S[j];
 				j++;
 				check = 0;
 			}
 			else
 			{
 				cout << "\nNo student found. Please try again!";
-				List::searchchem(k);
+				controller::searchchem(k);
 			}
 	switch (k)
 	{
@@ -312,7 +312,7 @@ void List::searchchem(int k) {
 	}
 }
 
-void List::searchphys(int k) {
+void  controller::searchphys(int k) {
 	int j = 0;
 	int i;
 	int **K = new int *[50];
@@ -324,17 +324,17 @@ void List::searchphys(int k) {
 	bool check = 1;
 	if (check = 1)
 		for (int i = 0; i < *n; i++)
-			if (key = List::st[i]->math) {
-				List::st[i]->id = *K[j];
-				List::st[i]->name = *A[j];
-				List::st[i]->sum = *S[j];
+			if (key = controller::st[i]->math) {
+				controller::st[i]->id = *K[j];
+				controller::st[i]->name = *A[j];
+				controller::st[i]->sum = *S[j];
 				j++;
 				check = 0;
 			}
 			else
 			{
 				cout << "\nNo student found. Please try again!";
-				List::searchphys(k);
+				controller::searchphys(k);
 			}
 	switch (k)
 	{
@@ -350,7 +350,7 @@ void List::searchphys(int k) {
 	}
 }
 
-void List::modify() {
+void  controller::modify() {
 	cout << "\nChoose id of student which need to modify.\nEnter it: ";
 	int key;
 	cin >> key;
@@ -362,7 +362,7 @@ void List::modify() {
 	float chem;
 	float phys;
 	for (int k = 0; k <= *n; k++)
-		if (key = List::st[k]->id) {
+		if (key = controller::st[k]->id) {
 			cout << "Enter student ip: ";
 			cin >> id;
 			fflush(stdin);
@@ -381,27 +381,28 @@ void List::modify() {
 			cin >> chem;
 			cout << "\nEnter physical grade: ";
 			cin >> phys;
-			List::st[k]->SetSV(id, name, address, gender, math, chem, phys);
+			controller::st[k]->SetSV(id, name, address, gender, math, chem, phys);
 		}
-		for (int i = 0; i < *n; i++)
-			if (check(i,st[i]->id, st[i]->name, st[i]->address, st[i]->gender, st[i]->math, st[i]->chem, st[i]->phys) == 0)
-	{		cout << "\nEntered is failed. Please try again!";
+	for (int i = 0; i < *n; i++)
+		if (check(i, st[i]->id, st[i]->name, st[i]->address, st[i]->gender, st[i]->math, st[i]->chem, st[i]->phys) == 0)
+		{
+			cout << "\nEntered is failed. Please try again!";
 			modify();
-	}
+		}
 }
 
 
-void List::del() {
+void  controller::del() {
 	cout << "\nEnter an id of student which you want to delete.\nEnter it: ";
 	int key;
 	cin >> key;
 	for (int i = 0; i < *n; i++)
-		if (List::st[i]->id = key)
-			delete List::st[i];
+		if (controller::st[i]->id = key)
+			delete  controller::st[i];
 }
 
-void List::add() {
-	List::st[*n + 1] = new Student;
+void  controller::add() {
+	controller::st[*n + 1] = new Student;
 	int key;
 	cin >> key;
 	int id;
@@ -429,16 +430,18 @@ void List::add() {
 	cin >> chem;
 	cout << "\nEnter physical grade: ";
 	cin >> phys;
-	List::st[*n + 1]->SetSV(id, name, address, gender, math, chem, phys);
+	controller::st[*n + 1]->SetSV(id, name, address, gender, math, chem, phys);
 
 	for (int i = 0; i < *n; i++)
-		if (check(i,st[i]->id, st[i]->name, st[i]->address, st[i]->gender, st[i]->math, st[i]->chem, st[i]->phys) == 0)
-	{		cout << "\nEntered is failed. Please try again!";
+		if (check(i, st[i]->id, st[i]->name, st[i]->address, st[i]->gender, st[i]->math, st[i]->chem, st[i]->phys) == 0)
+		{
+			cout << "\nEntered is failed. Please try again!";
 			add();
-	}
+		}
 }
 
-void List::printList() {
+void  controller::printList() {
 	for (int i = 0; i < *n; i++)
 		st[i]->GetSV();
 }
+
