@@ -1,8 +1,8 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include"Student.h"
-#include"List.h"
+#include"Student_management_model.h"
+#include"Student_management_controller.h"
 
 using namespace std;
 

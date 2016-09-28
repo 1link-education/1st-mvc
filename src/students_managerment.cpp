@@ -5,9 +5,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "Student.h"
-#include "List.h"
-#include "Menu.h"
+#include"Student_management_model.h"
+#include"Student_management_controller.h"
+#include"Student_management_view.h"
 
 using namespace std;
 

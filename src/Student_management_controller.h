@@ -1,6 +1,6 @@
 #ifndef LIST_H
 #define LIST_H
-#include "Student.h"
+#include "Student_management_model.h"
 class List {
 public:
 	int *n;

@@ -1,9 +1,9 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include"Student.h"
-#include"List.h"
-#include"Menu.h"
+#include"Student_management_model.h"
+#include"Student_management_controller.h"
+#include"Student_management_view.h"
 
 using namespace std;
 
@@ -22,7 +22,7 @@ void Menu::listmenu() {
 			cin >> a.m;
 			a.CreateList1(a.m); break; }
 		case 2: a.CreateList2(); break;
-		case 3: main1(); break;
+		case 3: main_menu(); break;
 		}
 	else {
 		cout << "Error. Please try again.";
@@ -41,10 +41,10 @@ void Menu::modifymenu() {
 	if (select <= 4)
 		switch (select)
 		{
-		case 1: a.modify(); main1(); break;
-		case 2: a.del(); main1(); break;
-		case 3: a.add(); main1(); break;
-		case 4: main1(); break;
+		case 1: a.modify(); main_menu(); break;
+		case 2: a.del(); main_menu(); break;
+		case 3: a.add(); main_menu(); break;
+		case 4: main_menu(); break;
 		}
 	else {
 		cout << "Error. Please try again.";
@@ -74,7 +74,7 @@ void Menu::searchmenu() {
 		case 4: sortmenu(s = 4); break;
 		case 5: sortmenu(s = 5); break;
 		case 6: sortmenu(s = 6); break;
-		case 7: main1(); break;
+		case 7: main_menu(); break;
 
 		}
 	else { cout << "Error. Please try again.";
@@ -110,7 +110,7 @@ void Menu::sortmenu(int s) {
 }
 
 
-int Menu::main1()
+int Menu::main_menu()
 {
 	int select;
 	cout << "1. Creat student list. \n";
@@ -126,7 +126,7 @@ int Menu::main1()
 		case 1: listmenu(); break;
 		case 2: searchmenu(); break;
 		case 3: modifymenu(); break;
-		case 4: a.printList(); main1(); break;
+		case 4: a.printList(); main_menu(); break;
 		case 5: break;
 		}
 	}
