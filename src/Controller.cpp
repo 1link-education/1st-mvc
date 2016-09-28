@@ -1,13 +1,13 @@
-#include<iostream>
+﻿#include<iostream>
 #include<string>
 #include<fstream>
-#include"Student_management_model.h"
-#include"Student_management_controller.h"
+#include"model.h"
+#include"controller.h"
 
 using namespace std;
+// i, j mặc định là các biến đếm.
 
-
-void List::CreateList1(int m) {
+void List::bykeyboard(int m) {
 	n = &m;
 	*n = m;
 	int id;
@@ -20,8 +20,8 @@ void List::CreateList1(int m) {
 	//cout << "\n Enter number of student.\n";
 	//cout << "n = ";
 	//cin >> n;
-	for (int k = 0; k < *n; k++) {
-		st[k] = new Student;
+	for (int j = 0; j < *n; j++) {
+		st[j] = new Student;
 		cout << "\nEnter student id: ";
 		cin >> id;
 		fflush(stdin);
@@ -40,13 +40,13 @@ void List::CreateList1(int m) {
 		cin >> chem;
 		cout << "\nEnter physical grade: ";
 		cin >> phys;
-		st[k]->SetSV(id, name, address, gender, math, chem, phys);
+		st[j]->SetSV(id, name, address, gender, math, chem, phys);
 	}
 	for (int i = 0; i < *n; i++)
 		if (check(i, st[i]->id, st[i]->name, st[i]->address, st[i]->gender, st[i]->math, st[i]->chem, st[i]->phys) == 0)
 		{
 			cout << "\nEntered is failed. Please try again!";
-			CreateList1(*n);
+			bykeyboard(*n);
 		}
 }
 int List::check(int i, int _id, string _name, string _address, string _gender, float _math, float _chem, float _phys) {
@@ -63,7 +63,7 @@ int List::check(int i, int _id, string _name, string _address, string _gender, f
 	}
 }
 
-void List::CreateList2() {
+void List::byfile() {
 	string filename;
 	int i = 0;
 	int id;
@@ -82,19 +82,14 @@ void List::CreateList2() {
 		file >> id >> name >> address >> gender >> math >> phys >> chem;
 		st[i]->SetSV(id, name, address, gender, math, chem, phys);
 		i++;
-		cout << "ID: " << id << "   Name: " << name << "    Address: " << address << "   Gender: " << gender << "   Math: " << math << "   Chemical: " << chem << "   Physical: " << phys <<endl;
+		cout << "ID: " << id << "   Name: " << name << "    Address: " << 
+		address << "   Gender: " << gender << "   Math: " << math 
+		<< "   Chemical: " << chem << "   Physical: " << phys <<endl;
 	}
 	if (file.eof())
 	{
 		cout << "Read file successful, all data from file has already been here.";
 	}
-}
-
-void List::nosort(int *K[]) {
-	for (int i = 0; i < *n; i++)
-		for (int j = 0; j < sizeof(K)/sizeof(int); j++)
-			if (List::st[i]->id = *K[j])
-				List::st[i]->GetSV();
 }
 
 void List::sortid(int*K[]) {
@@ -164,9 +159,9 @@ void List::sortsum(float *S[]) {
 }
 void List::searchsum(int k) {
 	int j = 0;
-	int **K = new int *[50];
-	string  **A = new string *[50];
-	float **S = new float*[50];
+	int **K = new int *[50]; // lưu sbd sinh viên K = key ~ id
+	string  **A = new string *[50]; // lưu tên sinh viên A = ABC ~ name
+	float **S = new float*[50]; // lưu tổng điểm sinh viên S = sum
 	float key;
 	cout << "\n Enter sum: ";
 	cin >> key;
@@ -189,9 +184,6 @@ void List::searchsum(int k) {
 	}
 	switch (k)
 	{
-	case 0:
-		nosort(K);
-		break;
 	case 1:
 		sortid(K);
 		break;
@@ -270,9 +262,6 @@ void List::searchmath(int k) {
 			}
 	switch (k)
 	{
-	case 0:
-		nosort(K);
-		break;
 	case 1:
 		sortid(K);
 		break;
@@ -311,9 +300,6 @@ void List::searchchem(int k) {
 			}
 	switch (k)
 	{
-	case 0:
-		nosort(K);
-		break;
 	case 1:
 		sortid(K);
 		break;
@@ -352,9 +338,6 @@ void List::searchphys(int k) {
 			}
 	switch (k)
 	{
-	case 0:
-		nosort(K);
-		break;
 	case 1:
 		sortid(K);
 		break;
@@ -403,7 +386,7 @@ void List::modify() {
 		for (int i = 0; i < *n; i++)
 			if (check(i,st[i]->id, st[i]->name, st[i]->address, st[i]->gender, st[i]->math, st[i]->chem, st[i]->phys) == 0)
 	{		cout << "\nEntered is failed. Please try again!";
-			CreateList1(*n);
+			modify();
 	}
 }
 
@@ -430,8 +413,6 @@ void List::add() {
 	float phys;
 	cout << "Enter student ip: ";
 	cin >> id;
-	for (int j = 0; j <= *n; j++)
-		if (id == st[j]->id) { cout << "This id was entered. Please try again."; cin >> id; }
 	fflush(stdin);
 	getline(std::cin, name);
 	cout << "\nEnter student name: ";
@@ -453,7 +434,7 @@ void List::add() {
 	for (int i = 0; i < *n; i++)
 		if (check(i,st[i]->id, st[i]->name, st[i]->address, st[i]->gender, st[i]->math, st[i]->chem, st[i]->phys) == 0)
 	{		cout << "\nEntered is failed. Please try again!";
-	CreateList1(*n);
+			add();
 	}
 }
 

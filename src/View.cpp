@@ -1,9 +1,9 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include"Student_management_model.h"
-#include"Student_management_controller.h"
-#include"Student_management_view.h"
+#include"model.h"
+#include"controller.h"
+#include"view.h"
 
 using namespace std;
 
@@ -20,8 +20,8 @@ void Menu::listmenu() {
 			cout << "\n Enter number of student.\n";
 			cout << "n = ";
 			cin >> a.m;
-			a.CreateList1(a.m); break; }
-		case 2: a.CreateList2(); break;
+			a.bykeyboard(a.m); break; }
+		case 2: a.byfile(); break;
 		case 3: main_menu(); break;
 		}
 	else {
@@ -56,7 +56,7 @@ void Menu::modifymenu() {
 
 void Menu::searchmenu() {
 	int select;
-	int s;
+	int search; 
 	cout << "\n1. Search by sum grade of 3 subject (mathematic, chemical, physical).";
 	cout << "\n2. Search by id.";
 	cout << "\n3. Search by name.";
@@ -68,12 +68,12 @@ void Menu::searchmenu() {
 	if (select <= 7)	
 		switch (select)
 		{
-		case 1: sortmenu(s = 1); break;
+		case 1: sortmenu(search = 1); break;
 		case 2: a.searchid(); break;
 		case 3: a.searchname(); break;
-		case 4: sortmenu(s = 4); break;
-		case 5: sortmenu(s = 5); break;
-		case 6: sortmenu(s = 6); break;
+		case 4: sortmenu(search = 4); break;
+		case 5: sortmenu(search = 5); break;
+		case 6: sortmenu(search = 6); break;
 		case 7: main_menu(); break;
 
 		}
@@ -82,7 +82,7 @@ void Menu::searchmenu() {
 	}
 }
 
-void Menu::sortmenu(int s) {
+void Menu::sortmenu(int search) {
 	int select;
 	cout << "\n1. Sort by id.";
 	cout << "\n2. Sort by alphabet.";
@@ -92,7 +92,7 @@ void Menu::sortmenu(int s) {
 	if (select <= 3)
 	{
 		remove("output.txt");
-		switch (s)
+		switch (search)
 		{
 		case 1: a.searchsum(select); break;
 		case 4: a.searchmath(select); break;
@@ -105,7 +105,7 @@ void Menu::sortmenu(int s) {
 		else
 		{
 			cout << "Error. Please try again.";
-			sortmenu(s);
+			sortmenu(search);
 	}
 }
 

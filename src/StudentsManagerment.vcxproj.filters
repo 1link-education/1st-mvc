@@ -18,24 +18,24 @@
     <ClCompile Include="students_managerment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Student_management_model.cpp">
+    <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Student_management_controller.cpp">
+    <ClCompile Include="View.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Student_management_view.cpp">
+    <ClCompile Include="Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Student_management_model.h">
+    <ClInclude Include="Controller.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Student_management_controller.h">
+    <ClInclude Include="View.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Student_management_view.h">
+    <ClInclude Include="Model.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

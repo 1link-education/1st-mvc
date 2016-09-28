@@ -2,7 +2,7 @@
 #include<string>
 #include<fstream>
 #include<ostream>
-#include"Student.h"
+#include"MODEL.h"
 
 using namespace std;
 
