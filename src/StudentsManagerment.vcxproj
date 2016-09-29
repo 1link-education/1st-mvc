@@ -142,15 +142,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="View.cpp" />
-    <ClCompile Include="Model.cpp" />
-    <ClCompile Include="students_managerment.cpp" />
+    <ClCompile Include="StudentManagementController.cpp" />
+    <ClCompile Include="StudentManagementView.cpp" />
+    <ClCompile Include="StudentManagementModel.cpp" />
+    <ClCompile Include="StudentManagement.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="View.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="Controller.h" />
+    <ClInclude Include="StudentManagementView.h" />
+    <ClInclude Include="StudentManagementModel.h" />
+    <ClInclude Include="StudentManagementController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

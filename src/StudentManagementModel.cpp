@@ -2,11 +2,14 @@
 #include<string>
 #include<fstream>
 #include<ostream>
-#include"MODEL.h"
+#include"StudentManagementModel.h"
 
 using namespace std;
 
 void Student::SetSV(int _id, string _name, string _address, string _gender, float _math, float _chem, float _phys) {
+	// Chuc nang
+	// int _id: id of student
+	
 	id = _id;
 	name = _name;
 	address = _address;

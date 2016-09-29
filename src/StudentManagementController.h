@@ -1,7 +1,9 @@
-﻿#ifndef CONTROLLER_H
-#define CONTROLLER_H
-#include "model.h"
-class controller {
+﻿#ifndef STUDENTMANAGEMENTCONTROLLER_H
+#define STUDENTMANAGEMENTCONTROLLER_H
+#include "StudentManagementModel.h"
+class controller 
+// Student Management Controller
+{
 public:
 	int *n; // số sinh viên
 

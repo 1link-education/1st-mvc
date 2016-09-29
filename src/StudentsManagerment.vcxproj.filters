@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="students_managerment.cpp">
+    <ClCompile Include="StudentManagement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Controller.cpp">
+    <ClCompile Include="StudentManagementModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="View.cpp">
+    <ClCompile Include="StudentManagementController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model.cpp">
+    <ClCompile Include="StudentManagementView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Controller.h">
+    <ClInclude Include="StudentManagementModel.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
+    <ClInclude Include="StudentManagementController.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
+    <ClInclude Include="StudentManagementView.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,13 +1,13 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include"model.h"
-#include"controller.h"
-#include"view.h"
+#include"StudentManagementModel.h"
+#include"StudentManagementController.h"
+#include"StudentManagementView.h"
 
 using namespace std;
 
-void View::listView() {
+void View::listMenu() {
 	int select;
 	cout << "\n1.Enter by keyboard.";
 	cout << "\n2.Get from file.";
@@ -22,15 +22,15 @@ void View::listView() {
 			cin >> a.m;
 			a.bykeyboard(a.m); break; }
 		case 2: a.byfile(); break;
-		case 3: main_View(); break;
+		case 3: mainMenu(); break;
 		}
 	else {
 		cout << "Error. Please try again.";
-		listView();
+		listMenu();
 	}
 }
 
-void View::modifyView() {
+void View::modifyMenu() {
 	int select;
 	cout << "\nDo you want to add, modify or delete a student? Please remember its id.";
 	cout << "\n1. Yes I want to modify a student.";
@@ -41,20 +41,20 @@ void View::modifyView() {
 	if (select <= 4)
 		switch (select)
 		{
-		case 1: a.modify(); main_View(); break;
-		case 2: a.del(); main_View(); break;
-		case 3: a.add(); main_View(); break;
-		case 4: main_View(); break;
+		case 1: a.modify(); mainMenu(); break;
+		case 2: a.del(); mainMenu(); break;
+		case 3: a.add(); mainMenu(); break;
+		case 4: mainMenu(); break;
 		}
 	else {
 		cout << "Error. Please try again.";
-		modifyView();
+		modifyMenu();
 	}
 }
 
 
 
-void View::searchView() {
+void View::searchMenu() {
 	int select;
 	int search;
 	cout << "\n1. Search by sum grade of 3 subject (mathematic, chemical, physical).";
@@ -63,27 +63,27 @@ void View::searchView() {
 	cout << "\n4. Search by grade of mathematic.";
 	cout << "\n5. Search by grade of chemical.";
 	cout << "\n6. Search by grade of physical.";
-	cout << "\n7. Back to View.\n";
+	cout << "\n7. Back.\n";
 	cin >> select;
 	if (select <= 7)
 		switch (select)
 		{
-		case 1: sortView(search = 1); break;
+		case 1: sortMenu(search = 1); break;
 		case 2: a.searchid(); break;
 		case 3: a.searchname(); break;
-		case 4: sortView(search = 4); break;
-		case 5: sortView(search = 5); break;
-		case 6: sortView(search = 6); break;
-		case 7: main_View(); break;
+		case 4: sortMenu(search = 4); break;
+		case 5: sortMenu(search = 5); break;
+		case 6: sortMenu(search = 6); break;
+		case 7: mainMenu(); break;
 
 		}
 	else {
 		cout << "Error. Please try again.";
-		searchView();
+		searchMenu();
 	}
 }
 
-void View::sortView(int search) {
+void View::sortMenu(int search) {
 	int select;
 	cout << "\n1. Sort by id.";
 	cout << "\n2. Sort by alphabet.";
@@ -102,16 +102,16 @@ void View::sortView(int search) {
 		}
 	}
 	else
-		if (select == 4) searchView();
+		if (select == 4) searchMenu();
 		else
 		{
 			cout << "Error. Please try again.";
-			sortView(search);
+			sortMenu(search);
 		}
 }
 
 
-int View::main_View()
+int View::mainMenu()
 {
 	int select;
 	cout << "1. Creat student list. \n";
@@ -124,10 +124,10 @@ int View::main_View()
 	{
 		switch (select)
 		{
-		case 1: listView(); break;
-		case 2: searchView(); break;
-		case 3: modifyView(); break;
-		case 4: a.printList(); main_View(); break;
+		case 1: listMenu(); break;
+		case 2: searchMenu(); break;
+		case 3: modifyMenu(); break;
+		case 4: a.printList(); mainMenu(); break;
 		case 5: break;
 		}
 	}

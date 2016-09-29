@@ -1,8 +1,8 @@
 ﻿#include<iostream>
 #include<string>
 #include<fstream>
-#include"model.h"
-#include"controller.h"
+#include"StudentManagementModel.h"
+#include"StudentManagementController.h"
 
 using namespace std;
 // i, j mặc định là các biến đếm.
@@ -10,13 +10,13 @@ using namespace std;
 void  controller::bykeyboard(int m) {
 	n = &m;
 	*n = m;
-	int id;
+	int id = 0;
 	string name;
 	string address;
 	string gender;
-	float math;
-	float chem;
-	float phys;
+	float math = 0.0;
+	float chem = 0.0;
+	float phys = 0.0;
 	//cout << "\n Enter number of student.\n";
 	//cout << "n = ";
 	//cin >> n;
@@ -66,13 +66,13 @@ int  controller::check(int i, int _id, string _name, string _address, string _ge
 void  controller::byfile() {
 	string filename;
 	int i = 0;
-	int id;
+	int id = 0;
 	string name;
 	string address;
 	string gender;
-	float math;
-	float phys;
-	float chem;
+	float math = 0.0;
+	float phys = 0.0;
+	float chem = 0.0;
 	cout << "\n Enter file link:";
 	//getline(std::cin, filename);
 	cin >> filename;
@@ -94,8 +94,7 @@ void  controller::byfile() {
 
 void  controller::sortid(int*K[]) {
 	int *x;
-	int j;
-	for (j = 0; j < sizeof(K) / sizeof(int); j++)
+	for (int j = 0; j < sizeof(K) / sizeof(int); j++)
 	{
 		int m = j;
 		for (int t = j + 1; t < sizeof(K) / sizeof(int); t++)
@@ -443,5 +442,6 @@ void  controller::add() {
 void  controller::printList() {
 	for (int i = 0; i < *n; i++)
 		st[i]->GetSV();
+	return;
 }
 

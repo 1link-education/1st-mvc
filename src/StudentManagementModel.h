@@ -1,11 +1,12 @@
-﻿#ifndef MODEL_H
-#define MODEL_H
+﻿#ifndef STUDENTMANAGEMENTMODEL_H
+#define STUDENTMANAGEMENTMODEL_H
 
 #include<string>
 
 using namespace std;
 
 class Student
+	//Student Management Model
 {
 public:
 	int id;

@@ -5,15 +5,14 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include"model.h"
-#include"controller.h"
-#include"view.h"
-
+#include"StudentManagementModel.h"
+#include"StudentManagementController.h"
+#include"StudentManagementView.h"
 using namespace std;
 
 int main()
 {
 	View b;
-	b.main_View();
+	b.mainMenu();
 	return 0;
 }
