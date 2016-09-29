@@ -9,6 +9,7 @@ using namespace std;
 
 void View::listMenu() {
 	int select;
+
 	cout << "\n1.Enter by keyboard.";
 	cout << "\n2.Get from file.";
 	cout << "\n3.Back.\n";
@@ -20,8 +21,18 @@ void View::listMenu() {
 			cout << "\n Enter number of student.\n";
 			cout << "n = ";
 			cin >> a.m;
-			a.bykeyboard(a.m); break; }
-		case 2: a.byfile(); break;
+			a.bykeyboard(a.m);
+			mainMenu();
+			break; }
+		case 2: {
+			string fileName;
+			cout << "\n Enter file link:";
+			//fflush(stdin);
+			//getline(std::cin, *fileName);
+			cin >> fileName;
+			a.byfile(fileName);
+			mainMenu();
+			break; }
 		case 3: mainMenu(); break;
 		}
 	else {

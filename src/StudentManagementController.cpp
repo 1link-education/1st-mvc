@@ -1,6 +1,7 @@
 ﻿#include<iostream>
 #include<string>
 #include<fstream>
+#include<conio.h>
 #include"StudentManagementModel.h"
 #include"StudentManagementController.h"
 
@@ -63,8 +64,7 @@ int  controller::check(int i, int _id, string _name, string _address, string _ge
 	}
 }
 
-void  controller::byfile() {
-	string filename;
+void  controller::byfile(string fileName) {
 	int i = 0;
 	int id = 0;
 	string name;
@@ -73,23 +73,32 @@ void  controller::byfile() {
 	float math = 0.0;
 	float phys = 0.0;
 	float chem = 0.0;
-	cout << "\n Enter file link:";
-	//getline(std::cin, filename);
-	cin >> filename;
-	ifstream file(filename);
-	while (!file.eof()) {
-		st[i] = new Student;
-		file >> id >> name >> address >> gender >> math >> phys >> chem;
-		st[i]->SetSV(id, name, address, gender, math, chem, phys);
-		i++;
-		cout << "ID: " << id << "   Name: " << name << "    Address: " <<
-			address << "   Gender: " << gender << "   Math: " << math
-			<< "   Chemical: " << chem << "   Physical: " << phys << endl;
-	}
-	if (file.eof())
+	
+	//ifstream file(filename);
+	ifstream file;
+	file.open(fileName, ios::in);
+	bool checkfile = file.fail();
+	if (checkfile == true)
 	{
-		cout << "Read file successful, all data from file has already been here.";
+		cout << "No file be found.\n";
 	}
+	else
+	{
+		while (!file.eof()) {
+			st[i] = new Student;
+			file >> id >> name >> address >> gender >> math >> phys >> chem;
+			st[i]->SetSV(id, name, address, gender, math, chem, phys);
+			i++;
+			cout << "ID: " << id << "   Name: " << name << "    Address: " <<
+				address << "   Gender: " << gender << "   Math: " << math
+				<< "   Chemical: " << chem << "   Physical: " << phys << endl;
+		}
+		if (file.eof())
+		{
+			cout << "Read file successful, all data from file has already been here.";
+		}
+	}
+	file.close();
 }
 
 void  controller::sortid(int*K[]) {
@@ -237,7 +246,6 @@ void  controller::searchname() {
 
 void  controller::searchmath(int k) {
 	int j = 0;
-	int i;
 	int **K = new int *[50];
 	string  **A = new string *[50];
 	float **S = new float*[50];
@@ -275,7 +283,6 @@ void  controller::searchmath(int k) {
 
 void  controller::searchchem(int k) {
 	int j = 0;
-	int i;
 	int **K = new int *[50];
 	string  **A = new string *[50];
 	float **S = new float*[50];
@@ -313,7 +320,6 @@ void  controller::searchchem(int k) {
 
 void  controller::searchphys(int k) {
 	int j = 0;
-	int i;
 	int **K = new int *[50];
 	string  **A = new string *[50];
 	float **S = new float*[50];

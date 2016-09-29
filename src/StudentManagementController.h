@@ -13,7 +13,7 @@ public:
 
 	void bykeyboard(int); // tạo danh sách từ bàn phím
 
-	void byfile(); // tạo danh sách từ file
+	void byfile(string); // tạo danh sách từ file
 
 	void searchsum(int); // tìm kiếm theo tổng điểm
 
